@@ -1,0 +1,62 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Blank_A4" language="java" pageWidth="250" pageHeight="442" columnWidth="230" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="3d2a2515-8633-4a9d-85ae-38d66f872281">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgres-adapter-4"/>
+	<query language="SQL"><![CDATA[select * from tb_cupons]]></query>
+	<field name="cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
+	</field>
+	<field name="data_emissao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="data_emissao"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_emissao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
+	</field>
+	<field name="numero_cupom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numero_cupom"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero_cupom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
+	</field>
+	<field name="valor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="valor"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="80" splitType="Stretch">
+		<element kind="staticText" uuid="91de7e86-8b38-4365-a3fb-6fe2e376673f" x="-10" y="-10" width="250" height="50" fontName="Arial Black" fontSize="20.0" hTextAlign="Center">
+			<text><![CDATA[CUPOM FISCAL]]></text>
+		</element>
+		<element kind="textField" uuid="bb260796-5857-4c54-b999-44669594108e" x="150" y="30" width="70" height="50" forecolor="#FF0C08" fontName="Yu Gothic UI Semibold" fontSize="14.0" linkType="None" linkTarget="Self" hTextAlign="Center">
+			<expression><![CDATA[$F{data_emissao}]]></expression>
+		</element>
+		<element kind="staticText" uuid="a5e624d7-d864-4ad3-99ab-8a492a06ba5a" x="0" y="40" width="130" height="35" fontName="Arial Black" fontSize="20.0">
+			<text><![CDATA[EMISSÃO]]></text>
+		</element>
+	</title>
+	<pageHeader height="49" splitType="Stretch">
+		<element kind="textField" uuid="1ac6dd3e-f0fd-4a6d-ae29-c731e2063f91" x="169" y="19" width="59" height="30" forecolor="#FF2521" fontName="Yu Gothic UI Semibold" fontSize="14.0">
+			<expression><![CDATA[$F{cnpj}]]></expression>
+		</element>
+		<element kind="staticText" uuid="40ad8bb2-00d1-4829-bbd3-dfa043c1d599" x="0" y="10" width="90" height="29" fontName="Arial Black" fontSize="20.0">
+			<text><![CDATA[CNPJ]]></text>
+		</element>
+	</pageHeader>
+	<pageFooter height="54" splitType="Stretch">
+		<element kind="staticText" uuid="47401f5f-7761-4e34-a565-cc0e9f752c0d" x="0" y="0" width="90" height="53" fontName="Arial Black" fontSize="20.0">
+			<text><![CDATA[VALOR]]></text>
+		</element>
+		<element kind="textField" uuid="da8756df-219d-4184-aca2-fa2123d71568" x="160" y="0" width="80" height="34" forecolor="#FF0C08" fontName="Yu Gothic UI Semibold" fontSize="17.0">
+			<expression><![CDATA[$F{valor}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="84" splitType="Stretch">
+		<element kind="staticText" uuid="cabab87f-cc0b-470d-bb01-1f9b61654f5e" x="0" y="-1" width="77" height="45" fontName="Arial Black" fontSize="20.0">
+			<text><![CDATA[COD]]></text>
+		</element>
+		<element kind="textField" uuid="94dba49e-1165-4a01-b8e7-f38ae93f5ba8" x="160" y="10" width="80" height="40" forecolor="#FF0C08" fontName="Yu Gothic UI Semibold" fontSize="14.0">
+			<expression><![CDATA[$F{numero_cupom}]]></expression>
+		</element>
+	</summary>
+</jasperReport>
