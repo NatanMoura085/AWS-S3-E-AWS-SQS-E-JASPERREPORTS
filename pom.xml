@@ -78,20 +78,12 @@
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-pdf</artifactId>
-<<<<<<< HEAD
-            <version>7.0.1</version> <!-- Use a versão compatível com a sua versão do JasperReports -->
-=======
             <version>7.0.1</version>
->>>>>>> 02e72ab (update: git)
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
-            <artifactId>spring-boot-starter-logging</artifactId> <!-- Inclui SLF4J e Logback -->
-=======
             <artifactId>spring-boot-starter-logging</artifactId>
->>>>>>> 02e72ab (update: git)
         </dependency>
 
         <dependency>
@@ -102,11 +94,7 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-core</artifactId>
-<<<<<<< HEAD
-            <version>1.11.163</version> <!-- Verifique por uma versão mais recente se necessário -->
-=======
             <version>1.11.163</version>
->>>>>>> 02e72ab (update: git)
         </dependency>
         <dependency>
             <groupId>io.awspring.cloud</groupId>
@@ -169,5 +157,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
