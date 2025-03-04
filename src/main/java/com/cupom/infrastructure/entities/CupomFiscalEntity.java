@@ -1,5 +1,9 @@
 package com.cupom.infrastructure.entities;
 
+<<<<<<< HEAD
+=======
+import com.cupom.core.dtos.CupomFiscalDTO;
+>>>>>>> 02e72ab (update: git)
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 
@@ -26,6 +30,16 @@ public class CupomFiscalEntity {
         this.dataEmissao = builder.dataEmissao;
     }
 
+<<<<<<< HEAD
+=======
+    public CupomFiscalEntity(CupomFiscalDTO cupomFiscalDTO){
+        this.id = cupomFiscalDTO.id();
+        this.numeroCupom = cupomFiscalDTO.numeroCupom();
+        this.cnpj = cupomFiscalDTO.cnpj();
+        this.valor = cupomFiscalDTO.valor();
+        this.dataEmissao = cupomFiscalDTO.dataEmissao();
+    }
+>>>>>>> 02e72ab (update: git)
 
     public static class Builder {
         private Long id;
