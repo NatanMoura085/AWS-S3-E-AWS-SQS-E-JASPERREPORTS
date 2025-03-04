@@ -2,6 +2,7 @@ package com.cupom.infrastructure.config;
 
 import io.awspring.cloud.sqs.listener.QueueNotFoundStrategy;
 import io.awspring.cloud.sqs.operations.SqsTemplate;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,17 +12,17 @@ import software.amazon.awssdk.services.sqs.SqsAsyncClient;
 
 @Configuration
 public class SqsConfig {
-    @Value("${aws.sqs.access-key}")
-    private String accessKey;
+    public Dotenv dotenv;
 
-    @Value("${aws.sqs.secret-key}")
-    private String secretKey;
+    public SqsConfig(Dotenv dotenv){
+        this.dotenv =dotenv;
+    }
     @Bean
     public SqsAsyncClient sqsAsyncClient() {
         return SqsAsyncClient.builder()
                 .region(Region.US_EAST_1)
                 .credentialsProvider(() -> AwsBasicCredentials.create(
-                        accessKey,secretKey))
+                        dotenv.get("AWS_SQS_ACESS_KEY"),dotenv.get("AWS_SQS_SECRET_KEY")))
                 .build();
 
     }

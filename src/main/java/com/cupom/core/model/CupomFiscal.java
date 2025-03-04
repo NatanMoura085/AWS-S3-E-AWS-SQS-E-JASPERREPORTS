@@ -30,12 +30,6 @@ public class CupomFiscal {
         this.valor = builder.valor;
         this.dataEmissao = builder.dataEmissao;
     }
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 02e72ab (update: git)
     public static class Builder {
         private Long id;
         private String numeroCupom;
@@ -108,12 +102,9 @@ public class CupomFiscal {
     public void setDataEmissao(OffsetDateTime dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
-<<<<<<< HEAD
-=======
 
 
     public CupomFiscalDTO toCupomFiscalDTO() {
         return new CupomFiscalDTO(this.id,this.numeroCupom,this.cnpj,this.valor,this.dataEmissao);
     }
->>>>>>> 02e72ab (update: git)
 }
