@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class CupomFiscalAssembler {
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper = new ModelMapper();
 
     public CupomFiscalEntity toCupomFiscalEntity(CupomFiscalDTO cupomFiscalDTO) {
         return modelMapper.map(cupomFiscalDTO, CupomFiscalEntity.class);
