@@ -1,4 +1,4 @@
-package com.cupom.infrastructure.adpaters.repository;
+package com.cupom.infrastructure.adapters.repository;
 
 import com.cupom.core.dtos.CupomFiscalDTO;
 import com.cupom.core.ports.repositories.CupomFiscalRepositoryPort;

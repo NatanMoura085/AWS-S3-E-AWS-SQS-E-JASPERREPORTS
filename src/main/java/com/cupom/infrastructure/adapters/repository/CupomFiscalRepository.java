@@ -1,4 +1,4 @@
-package com.cupom.infrastructure.adpaters.repository;
+package com.cupom.infrastructure.adapters.repository;
 
 import com.cupom.infrastructure.entities.CupomFiscalEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

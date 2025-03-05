@@ -1,4 +1,4 @@
-package com.cupom.infrastructure.adpaters.jasper;
+package com.cupom.infrastructure.adapters.jasper;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;

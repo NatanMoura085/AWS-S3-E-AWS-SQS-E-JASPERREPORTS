@@ -1,4 +1,4 @@
-package com.cupom.infrastructure.adpaters.sqs;
+package com.cupom.infrastructure.adapters.sqs;
 
 import com.cupom.infrastructure.entities.CupomFiscalEntity;
 import io.awspring.cloud.sqs.annotation.SqsListener;

@@ -1,13 +1,15 @@
 package com.cupom.application.controllers;
 
 import com.cupom.core.dtos.CupomFiscalDTO;
-import com.cupom.infrastructure.adpaters.repository.CupomFiscalServiceRepository;
-import com.cupom.infrastructure.entities.CupomFiscalEntity;
-import com.cupom.infrastructure.adpaters.jasper.JasperReportService;
+import com.cupom.infrastructure.adapters.jasper.JasperReportService;
+import com.cupom.infrastructure.adapters.repository.CupomFiscalServiceRepository;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
