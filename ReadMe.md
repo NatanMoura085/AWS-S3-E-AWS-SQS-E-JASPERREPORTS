@@ -1,19 +1,20 @@
-# Spring Boot API - Geração de Cupom Fiscal com JasperReports e AWS S3
+# Spring Boot API - Geração de Cupom Fiscal com JasperReports e AWS S3,AWS SQS
 
-Este projeto é uma API REST desenvolvida em **Spring Boot** para gerar cupons fiscais em **PDF** utilizando **JasperReports** e armazená-los no **AWS S3**.
+Este projeto é uma API REST desenvolvida em **Spring Boot** para gerar cupons fiscais em **PDF** utilizando **JasperReports** e armazená-los no **AWS S3** e enviar mensagens para uma **fila AWS SQS** para processamento assíncrono.
 
 ## 🚀 Funcionalidades
 
 - **Geração de PDF**: Cria cupons fiscais em formato PDF a partir dos dados enviados via API.
 - **Armazenamento no AWS S3**: O PDF gerado é salvo automaticamente em um bucket do **AWS S3**.
 - **Retorno da URL**: A API retorna a URL do arquivo armazenado para download.
-
+- **Fila AWS SQS**: Uma mensagem contendo a chave do PDF gerado é enviada para uma fila **AWS SQS** para processamento assíncrono e rastreamento.
 ## 🛠 Tecnologias Utilizadas
 
 - **Java 11+**
 - **Spring Boot 3**
 - **JasperReports** (para gerar PDFs)
 - **AWS SDK (S3)** (para armazenar os arquivos gerados)
+- **AWS CLOUD (SQS)** (para enviar mensagens para a fila SQS)
 - **Lombok** (para redução de boilerplate)
 
 ## 📦 Dependências (pom.xml)
@@ -46,6 +47,12 @@ Este projeto é uma API REST desenvolvida em **Spring Boot** para gerar cupons f
         <artifactId>s3</artifactId>
         <version>2.20.66</version>
     </dependency>
+   <!-- AWS CLOUD para SQS -->
+   <dependency>
+      <groupId>io.awspring.cloud</groupId>
+      <artifactId>spring-cloud-aws-sqs</artifactId>
+      <version>3.3.0</version>
+   </dependency>
 </dependencies>
 ```
 

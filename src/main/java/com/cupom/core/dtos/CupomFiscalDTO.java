@@ -1,8 +1,9 @@
 package com.cupom.core.dtos;
 
 import java.time.OffsetDateTime;
+import java.util.Date;
 
-public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, String valor, OffsetDateTime dataEmissao) {
+public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, String valor, Date dataEmissao) {
     @Override
     public Long id() {
         return id;
@@ -24,7 +25,7 @@ public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, String va
     }
 
     @Override
-    public OffsetDateTime dataEmissao() {
+    public Date dataEmissao() {
         return dataEmissao;
     }
 }

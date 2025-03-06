@@ -3,6 +3,7 @@ package com.cupom.core.model;
 import com.cupom.core.dtos.CupomFiscalDTO;
 
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 
 public class CupomFiscal {
@@ -12,7 +13,7 @@ public class CupomFiscal {
     private String numeroCupom;
     private String cnpj;
     private String valor;
-    private OffsetDateTime dataEmissao;
+    private Date dataEmissao;
 
     public CupomFiscal() {
     }
@@ -35,7 +36,7 @@ public class CupomFiscal {
         private String numeroCupom;
         private String cnpj;
         private String valor;
-        private OffsetDateTime dataEmissao;
+        private Date dataEmissao;
 
 
         public Builder withNumeroCumpom(String numeroCupom) {
@@ -53,7 +54,7 @@ public class CupomFiscal {
             return this;
         }
 
-        public Builder withDataEmissao(OffsetDateTime dataEmissao) {
+        public Builder withDataEmissao(Date dataEmissao) {
             this.dataEmissao = dataEmissao;
             return this;
         }
@@ -95,11 +96,11 @@ public class CupomFiscal {
         this.valor = valor;
     }
 
-    public OffsetDateTime getDataEmissao() {
+    public Date getDataEmissao() {
         return dataEmissao;
     }
 
-    public void setDataEmissao(OffsetDateTime dataEmissao) {
+    public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
 

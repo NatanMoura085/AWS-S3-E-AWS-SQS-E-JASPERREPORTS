@@ -1,19 +1,18 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="Blank_A4" language="java" pageWidth="250" pageHeight="442" columnWidth="230" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="3d2a2515-8633-4a9d-85ae-38d66f872281">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgres-adapter-4"/>
-	<query language="SQL"><![CDATA[select * from tb_cupons]]></query>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<field name="cnpj" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
 		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
 	</field>
-	<field name="data_emissao" class="java.sql.Timestamp">
+	<field name="dataEmissao" class="java.util.Date">
 		<property name="com.jaspersoft.studio.field.name" value="data_emissao"/>
 		<property name="com.jaspersoft.studio.field.label" value="data_emissao"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
 	</field>
-	<field name="numero_cupom" class="java.lang.String">
+	<field name="numeroCupom" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="numero_cupom"/>
 		<property name="com.jaspersoft.studio.field.label" value="numero_cupom"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_cupons"/>
@@ -29,7 +28,7 @@
 			<text><![CDATA[CUPOM FISCAL]]></text>
 		</element>
 		<element kind="textField" uuid="bb260796-5857-4c54-b999-44669594108e" x="150" y="30" width="70" height="50" forecolor="#FF0C08" fontName="Yu Gothic UI Semibold" fontSize="14.0" linkType="None" linkTarget="Self" hTextAlign="Center">
-			<expression><![CDATA[$F{data_emissao}]]></expression>
+			<expression><![CDATA[$F{dataEmissao}]]></expression>
 		</element>
 		<element kind="staticText" uuid="a5e624d7-d864-4ad3-99ab-8a492a06ba5a" x="0" y="40" width="130" height="35" fontName="Arial Black" fontSize="20.0">
 			<text><![CDATA[EMISSÃO]]></text>
@@ -56,7 +55,7 @@
 			<text><![CDATA[COD]]></text>
 		</element>
 		<element kind="textField" uuid="94dba49e-1165-4a01-b8e7-f38ae93f5ba8" x="160" y="10" width="80" height="40" forecolor="#FF0C08" fontName="Yu Gothic UI Semibold" fontSize="14.0">
-			<expression><![CDATA[$F{numero_cupom}]]></expression>
+			<expression><![CDATA[$F{numeroCupom}]]></expression>
 		</element>
 	</summary>
 </jasperReport>

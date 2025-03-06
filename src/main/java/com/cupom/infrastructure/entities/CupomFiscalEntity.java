@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_cupons")
@@ -16,7 +17,8 @@ public class CupomFiscalEntity {
     private String numeroCupom;
     private String cnpj;
     private String valor;
-    private OffsetDateTime dataEmissao;
+    @Column(name = "data_emissao")
+    private Date dataEmissao;
     public CupomFiscalEntity() {}
     private CupomFiscalEntity(Builder builder) {
         this.id = builder.id;
@@ -35,12 +37,14 @@ public class CupomFiscalEntity {
         this.dataEmissao = cupomFiscalDTO.dataEmissao();
     }
 
+
+
     public static class Builder {
         private Long id;
         private String numeroCupom;
         private String cnpj;
         private String valor;
-        private OffsetDateTime dataEmissao;
+        private Date dataEmissao;
 
 
         public Builder withNumeroCumpom(String numeroCupom) {
@@ -58,7 +62,7 @@ public class CupomFiscalEntity {
             return this;
         }
 
-        public Builder withDataEmissao(OffsetDateTime dataEmissao) {
+        public Builder withDataEmissao(Date dataEmissao) {
             this.dataEmissao = dataEmissao;
             return this;
         }
@@ -99,11 +103,11 @@ public class CupomFiscalEntity {
             this.valor = valor;
         }
 
-        public OffsetDateTime getDataEmissao() {
+        public Date getDataEmissao() {
             return dataEmissao;
         }
 
-        public void setDataEmissao(OffsetDateTime dataEmissao) {
+        public void setDataEmissao(Date dataEmissao) {
             this.dataEmissao = dataEmissao;
         }
     }
