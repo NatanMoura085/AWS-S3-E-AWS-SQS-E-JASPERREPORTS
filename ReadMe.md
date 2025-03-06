@@ -8,14 +8,18 @@ Este projeto é uma API REST desenvolvida em **Spring Boot** para gerar cupons f
 - **Armazenamento no AWS S3**: O PDF gerado é salvo automaticamente em um bucket do **AWS S3**.
 - **Retorno da URL**: A API retorna a URL do arquivo armazenado para download.
 - **Fila AWS SQS**: Uma mensagem contendo a chave do PDF gerado é enviada para uma fila **AWS SQS** para processamento assíncrono e rastreamento.
+- **Persistência com JPA**: Dados do cupom fiscal são persistidos no banco de dados utilizando **JPA** (Java Persistence API) e **Spring Data JPA**.
+- **Arquitetura Hexagonal**: A aplicação segue a **Arquitetura Hexagonal**, onde a lógica de negócio é separada da infraestrutura (como banco de dados, S3, SQS, etc.), tornando o sistema mais modular, testável e fácil de manter.
 ## 🛠 Tecnologias Utilizadas
 
-- **Java 11+**
+- **Java 17+**
 - **Spring Boot 3**
 - **JasperReports** (para gerar PDFs)
 - **AWS SDK (S3)** (para armazenar os arquivos gerados)
 - **AWS CLOUD (SQS)** (para enviar mensagens para a fila SQS)
 - **Lombok** (para redução de boilerplate)
+- **Spring Data JPA** (para persistência de dados no banco)
+- **Arquitetura Hexagonal** (Clean Architecture)
 
 ## 📦 Dependências (pom.xml)
 
@@ -53,6 +57,11 @@ Este projeto é uma API REST desenvolvida em **Spring Boot** para gerar cupons f
       <artifactId>spring-cloud-aws-sqs</artifactId>
       <version>3.3.0</version>
    </dependency>
+   <!-- SPRING JPA para Persistência de dados no banco -->
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+   </dependency>
 </dependencies>
 ```
 
@@ -86,7 +95,7 @@ aws.secret-key=SEU_SECRET_KEY
    ```
 
 5. A API estará disponível em:  
-   📍 **http://localhost:8080/cupons**
+   📍 **http://localhost:8081/v1/api/cupons**
 
 ## 📡 Endpoints da API
 
