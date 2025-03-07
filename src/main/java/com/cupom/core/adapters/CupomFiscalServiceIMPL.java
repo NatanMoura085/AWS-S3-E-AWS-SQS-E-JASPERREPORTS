@@ -7,7 +7,7 @@ import com.cupom.core.ports.interfaces.CupomFiscalServicePort;
 import java.util.List;
 
 public class CupomFiscalServiceIMPL implements CupomFiscalServicePort {
-    private CupomFiscalServicePort cupomFiscalServicePort;
+    private final CupomFiscalServicePort cupomFiscalServicePort;
 
     public CupomFiscalServiceIMPL(CupomFiscalServicePort cupomFiscalServicePort) {
         this.cupomFiscalServicePort = cupomFiscalServicePort;

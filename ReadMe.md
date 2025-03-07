@@ -79,7 +79,7 @@ aws.secret-key=SEU_SECRET_KEY
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/seu-usuario/api-cupom-fiscal.git
+   git clone https://github.com/NatanMoura085/AWS-S3-E-AWS-SQS-E-JASPERREPORTS.git
    ```
 
 2. Acesse o diretório do projeto:
