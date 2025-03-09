@@ -1,5 +1,6 @@
 package com.cupom.infrastructure.entities;
 
+import com.cupom.core.dtos.CupomFiscalDTO;
 import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -14,6 +15,13 @@ public class CupomFiscalElasticEntity {
         this.numeroCupom = cupomFiscalElasticDTO.cnpj();
         this.valor = cupomFiscalElasticDTO.valor();
         this.dataEmissao = cupomFiscalElasticDTO.dataEmissao();
+    }
+
+    public CupomFiscalElasticEntity(CupomFiscalDTO cupomFiscalDTO) {
+        this.id = String.valueOf(cupomFiscalDTO.id());
+        this.numeroCupom = cupomFiscalDTO.cnpj();
+        this.valor = cupomFiscalDTO.valor();
+        this.dataEmissao = cupomFiscalDTO.dataEmissao();
     }
 
     @Id
@@ -57,5 +65,9 @@ public class CupomFiscalElasticEntity {
 
     public void setDataEmissao(Date dataEmissao) {
         this.dataEmissao = dataEmissao;
+    }
+
+    public CupomFiscalElasticDTO toCupomFiscalElasticDTO (){
+        return new CupomFiscalElasticDTO(this.id,this.numeroCupom,this.cnpj,this.valor,this.dataEmissao);
     }
 }
