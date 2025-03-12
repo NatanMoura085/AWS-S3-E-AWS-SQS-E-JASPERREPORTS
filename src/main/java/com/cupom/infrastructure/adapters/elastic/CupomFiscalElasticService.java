@@ -1,21 +1,25 @@
 package com.cupom.infrastructure.adapters.elastic;
 
+import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.core.ports.interfaces.CupomFiscalElasticPort;
 import com.cupom.infrastructure.assembler.CupomFiscalElasticAssembler;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Component
+@Slf4j
 public class CupomFiscalElasticService implements CupomFiscalElasticPort {
     private final CupomFiscalElasticRepository cupomFiscalElasticRepository;
     private final CupomFiscalElasticAssembler assembler;
+    private static Logger logger = LoggerFactory.getLogger(CupomFiscalElasticService.class);
 
     @Autowired
     public CupomFiscalElasticService(CupomFiscalElasticAssembler assembler, CupomFiscalElasticRepository cupomFiscalElasticRepository) {
@@ -37,8 +41,23 @@ public class CupomFiscalElasticService implements CupomFiscalElasticPort {
 
     @Override
     public CupomFiscalElasticDTO salvarElastic(CupomFiscalElasticDTO cupomFiscalElasticDTO) {
+        try {
         CupomFiscalElasticEntity cupomFiscalElasticEntity = new CupomFiscalElasticEntity(cupomFiscalElasticDTO);
-        cupomFiscalElasticRepository.save(cupomFiscalElasticEntity);
+           logger.info(cupomFiscalElasticEntity.getNumeroCupom());
+            logger.info("Tentando salvar cupom no ElasticSearch..💣💣💣💣💣💣💣.");
+            cupomFiscalElasticRepository.save(cupomFiscalElasticEntity);
+            logger.info("Cupom salvo com sucesso! 🎉");
+
+            logger.info("SALVO ->👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌");
+        } catch (ElasticsearchException e) {
+            e.printStackTrace();
+
+            logger.error(e.getMessage() + "📍📍📍📍📍📍📍📍📍📍📍📍📍📍📍",e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Erro inesperado ao salvar cupom no ElasticSearch: 📍📍📍📍📍📍📍📍📍📍📍{}", e.getMessage(), e);
+        }
+
         return cupomFiscalElasticDTO;
     }
 

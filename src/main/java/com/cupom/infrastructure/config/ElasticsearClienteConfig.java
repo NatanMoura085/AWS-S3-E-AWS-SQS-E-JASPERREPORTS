@@ -11,6 +11,6 @@ public class ElasticsearClienteConfig extends ElasticsearchConfiguration {
 
     @Override
     public ClientConfiguration clientConfiguration() {
-        return ClientConfiguration.builder().connectedTo("elasticsearch:9200").build();
+        return ClientConfiguration.builder().connectedTo("localhost:9200").withBasicAuth("elastic", "changeme").build();
     }
 }

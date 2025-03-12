@@ -1,9 +1,10 @@
 package com.cupom.infrastructure.entities;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
 import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.util.Date;
 
@@ -11,24 +12,22 @@ import java.util.Date;
 public class CupomFiscalElasticEntity {
 
     public CupomFiscalElasticEntity(CupomFiscalElasticDTO cupomFiscalElasticDTO) {
-        this.id = cupomFiscalElasticDTO.id();
-        this.numeroCupom = cupomFiscalElasticDTO.cnpj();
+        this.numeroCupom = cupomFiscalElasticDTO.numeroCupom() !=null ? cupomFiscalElasticDTO.numeroCupom() : "ESTA NULOOO😡😡😡😡🤬🤬";
+        this.cnpj = cupomFiscalElasticDTO.cnpj();
         this.valor = cupomFiscalElasticDTO.valor();
         this.dataEmissao = cupomFiscalElasticDTO.dataEmissao();
     }
 
-    public CupomFiscalElasticEntity(CupomFiscalDTO cupomFiscalDTO) {
-        this.id = String.valueOf(cupomFiscalDTO.id());
-        this.numeroCupom = cupomFiscalDTO.cnpj();
-        this.valor = cupomFiscalDTO.valor();
-        this.dataEmissao = cupomFiscalDTO.dataEmissao();
-    }
 
     @Id
     private String id;
+    @Field(type = FieldType.Text)
     private String numeroCupom;
+    @Field(type = FieldType.Text)
     private String cnpj;
+    @Field(type = FieldType.Text)
     private String valor;
+    @Field(type = FieldType.Date)
     private Date dataEmissao;
 
     public void setId(String id) {
@@ -68,6 +67,6 @@ public class CupomFiscalElasticEntity {
     }
 
     public CupomFiscalElasticDTO toCupomFiscalElasticDTO (){
-        return new CupomFiscalElasticDTO(this.id,this.numeroCupom,this.cnpj,this.valor,this.dataEmissao);
+        return new CupomFiscalElasticDTO(this.numeroCupom,this.cnpj,this.valor,this.dataEmissao);
     }
 }

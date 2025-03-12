@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfig {
     @Bean
     JasperPort jasperPort(JasperReportServicePort jasperReportServicePort) {
-        return new JasperReportServiceIMPL((JasperReportService) jasperReportServicePort);
+        return new JasperReportServiceIMPL(jasperReportServicePort);
     }
 
     @Bean
