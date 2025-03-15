@@ -45,10 +45,11 @@ public class CupomFiscalElasticService implements CupomFiscalElasticPort {
         CupomFiscalElasticEntity cupomFiscalElasticEntity = new CupomFiscalElasticEntity(cupomFiscalElasticDTO);
            logger.info(cupomFiscalElasticEntity.getNumeroCupom());
             logger.info("Tentando salvar cupom no ElasticSearch..💣💣💣💣💣💣💣.");
-            cupomFiscalElasticRepository.save(cupomFiscalElasticEntity);
-            logger.info("Cupom salvo com sucesso! 🎉");
+          CupomFiscalElasticEntity salvo =  cupomFiscalElasticRepository.save(cupomFiscalElasticEntity);
+            logger.info("Cupom salvo com sucesso! 🎉ID: {}",salvo.getId());
 
             logger.info("SALVO ->👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌👌");
+        return salvo.toCupomFiscalElasticDTO();
         } catch (ElasticsearchException e) {
             e.printStackTrace();
 

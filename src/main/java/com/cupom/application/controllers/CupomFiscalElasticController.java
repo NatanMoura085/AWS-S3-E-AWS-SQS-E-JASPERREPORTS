@@ -2,10 +2,12 @@ package com.cupom.application.controllers;
 
 import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.infrastructure.adapters.elastic.CupomFiscalElasticService;
-import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CupomFiscalElasticController {
     @Autowired
     private CupomFiscalElasticService cupomFiscalElasticService;
-    @PostMapping("/insertElastic")
-    public CupomFiscalElasticDTO insertElastic(CupomFiscalElasticDTO cupomFiscalElasticDTO) {
+    private static Logger logger = LoggerFactory.getLogger(CupomFiscalElasticController.class);
+
+    @PostMapping(value = "/insertElastic", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CupomFiscalElasticDTO insertElastic(@RequestBody CupomFiscalElasticDTO cupomFiscalElasticDTO) {
+        logger.info(String.valueOf(cupomFiscalElasticDTO) + "🔥🔥🔥");
         return cupomFiscalElasticService.salvarElastic(cupomFiscalElasticDTO);
     }
 }
