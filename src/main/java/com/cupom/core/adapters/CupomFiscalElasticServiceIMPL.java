@@ -1,6 +1,6 @@
 package com.cupom.core.adapters;
 
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.core.ports.interfaces.CupomFiscalElasticPort;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
 

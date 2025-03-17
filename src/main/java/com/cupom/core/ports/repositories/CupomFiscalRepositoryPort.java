@@ -1,6 +1,6 @@
 package com.cupom.core.ports.repositories;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 
 import java.util.List;
 

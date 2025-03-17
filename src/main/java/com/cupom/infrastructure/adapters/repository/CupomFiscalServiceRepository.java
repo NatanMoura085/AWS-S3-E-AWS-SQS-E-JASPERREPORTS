@@ -1,6 +1,6 @@
 package com.cupom.infrastructure.adapters.repository;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import com.cupom.core.ports.repositories.CupomFiscalRepositoryPort;
 import com.cupom.infrastructure.assembler.CupomFiscalAssembler;
 import com.cupom.infrastructure.entities.CupomFiscalEntity;

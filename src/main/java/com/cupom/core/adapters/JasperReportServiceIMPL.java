@@ -1,10 +1,9 @@
 package com.cupom.core.adapters;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import com.cupom.core.model.CupomFiscal;
 import com.cupom.core.ports.interfaces.JasperPort;
 import com.cupom.core.ports.jaspers.JasperReportServicePort;
-import com.cupom.infrastructure.adapters.jasper.JasperReportService;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 
 public class JasperReportServiceIMPL implements JasperPort {

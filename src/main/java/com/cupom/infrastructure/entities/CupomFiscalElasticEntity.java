@@ -1,8 +1,7 @@
 package com.cupom.infrastructure.entities;
 
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;

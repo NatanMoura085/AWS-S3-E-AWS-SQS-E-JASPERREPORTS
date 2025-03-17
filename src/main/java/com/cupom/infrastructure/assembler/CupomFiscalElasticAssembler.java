@@ -1,8 +1,7 @@
 package com.cupom.infrastructure.assembler;
 
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
-import com.cupom.infrastructure.entities.CupomFiscalEntity;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

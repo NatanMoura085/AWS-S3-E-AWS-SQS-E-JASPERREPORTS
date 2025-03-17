@@ -1,6 +1,6 @@
 package com.cupom.infrastructure.assembler;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import com.cupom.infrastructure.entities.CupomFiscalEntity;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;

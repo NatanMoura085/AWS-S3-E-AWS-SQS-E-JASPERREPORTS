@@ -4,7 +4,8 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
+import com.cupom.infrastructure.exception.CupomException;
 import com.cupom.core.ports.jaspers.JasperReportServicePort;
 import com.cupom.infrastructure.adapters.repository.CupomFiscalRepository;
 import com.cupom.infrastructure.entities.CupomFiscalEntity;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
-import java.time.OffsetDateTime;
 import java.util.*;
 
 @Slf4j
@@ -65,7 +65,7 @@ public class JasperReportService implements JasperReportServicePort {
                 return s3Client.getUrl(BUCKET_NAME, pdfKey).toString();
             }
         } catch (IOException | JRException e) {
-            throw new RuntimeException("Erro ao gerar o cupom fiscal", e);
+            throw new CupomException("Erro ao gerar o cupom fiscal", e);
         }
     }
 

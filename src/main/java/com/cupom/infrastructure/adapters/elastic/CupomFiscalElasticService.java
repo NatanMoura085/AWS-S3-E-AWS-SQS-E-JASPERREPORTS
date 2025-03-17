@@ -1,7 +1,7 @@
 package com.cupom.infrastructure.adapters.elastic;
 
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.core.ports.interfaces.CupomFiscalElasticPort;
 import com.cupom.infrastructure.assembler.CupomFiscalElasticAssembler;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Component
 @Slf4j
+@Component
 public class CupomFiscalElasticService implements CupomFiscalElasticPort {
     private final CupomFiscalElasticRepository cupomFiscalElasticRepository;
     private final CupomFiscalElasticAssembler assembler;

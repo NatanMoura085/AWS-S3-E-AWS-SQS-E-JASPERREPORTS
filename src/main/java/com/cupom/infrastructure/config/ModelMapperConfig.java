@@ -1,7 +1,7 @@
 package com.cupom.infrastructure.config;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
 import com.cupom.infrastructure.entities.CupomFiscalEntity;
 import org.modelmapper.ModelMapper;

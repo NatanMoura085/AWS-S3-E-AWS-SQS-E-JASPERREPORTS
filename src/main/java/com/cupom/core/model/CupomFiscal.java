@@ -1,8 +1,7 @@
 package com.cupom.core.model;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 
-import java.time.OffsetDateTime;
 import java.util.Date;
 
 

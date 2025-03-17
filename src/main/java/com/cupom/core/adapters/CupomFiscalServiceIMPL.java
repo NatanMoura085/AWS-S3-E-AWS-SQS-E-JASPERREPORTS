@@ -1,6 +1,6 @@
 package com.cupom.core.adapters;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import com.cupom.core.model.CupomFiscal;
 import com.cupom.core.ports.interfaces.CupomFiscalServicePort;
 

@@ -1,9 +1,8 @@
 package com.cupom.infrastructure.entities;
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 
-import java.time.OffsetDateTime;
 import java.util.Date;
 
 @Entity

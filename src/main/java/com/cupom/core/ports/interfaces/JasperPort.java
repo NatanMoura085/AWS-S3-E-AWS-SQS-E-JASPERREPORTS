@@ -1,6 +1,6 @@
 package com.cupom.core.ports.interfaces;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 
 public interface JasperPort {

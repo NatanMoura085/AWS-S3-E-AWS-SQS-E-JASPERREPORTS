@@ -1,11 +1,9 @@
 package com.cupom.application.controllers;
 
-import com.cupom.core.dtos.CupomFiscalDTO;
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.CupomFiscalDTO;
 import com.cupom.infrastructure.adapters.elastic.CupomFiscalElasticService;
 import com.cupom.infrastructure.adapters.jasper.JasperReportService;
 import com.cupom.infrastructure.adapters.repository.CupomFiscalServiceRepository;
-import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;

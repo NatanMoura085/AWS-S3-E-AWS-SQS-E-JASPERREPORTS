@@ -1,6 +1,6 @@
 package com.cupom.core.ports.interfaces;
 
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 
 import java.util.List;
 

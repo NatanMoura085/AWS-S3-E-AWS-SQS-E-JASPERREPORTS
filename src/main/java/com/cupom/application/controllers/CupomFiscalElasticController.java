@@ -1,6 +1,6 @@
 package com.cupom.application.controllers;
 
-import com.cupom.core.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.infrastructure.adapters.elastic.CupomFiscalElasticService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
