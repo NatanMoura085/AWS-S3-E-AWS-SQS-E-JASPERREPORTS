@@ -5,6 +5,7 @@ import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.core.ports.interfaces.CupomFiscalElasticPort;
 import com.cupom.infrastructure.assembler.CupomFiscalElasticAssembler;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
+import com.cupom.shared.validation.ValidCupom;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,6 @@ public class CupomFiscalElasticService implements CupomFiscalElasticPort {
     private final CupomFiscalElasticRepository cupomFiscalElasticRepository;
     private final CupomFiscalElasticAssembler assembler;
     private static Logger logger = LoggerFactory.getLogger(CupomFiscalElasticService.class);
-
     @Autowired
     public CupomFiscalElasticService(CupomFiscalElasticAssembler assembler, CupomFiscalElasticRepository cupomFiscalElasticRepository) {
         this.cupomFiscalElasticRepository = cupomFiscalElasticRepository;
@@ -40,7 +40,7 @@ public class CupomFiscalElasticService implements CupomFiscalElasticPort {
     }
 
     @Override
-    public CupomFiscalElasticDTO salvarElastic(CupomFiscalElasticDTO cupomFiscalElasticDTO) {
+    public CupomFiscalElasticDTO salvarElastic( CupomFiscalElasticDTO cupomFiscalElasticDTO) {
         try {
         CupomFiscalElasticEntity cupomFiscalElasticEntity = new CupomFiscalElasticEntity(cupomFiscalElasticDTO);
            logger.info(cupomFiscalElasticEntity.getNumeroCupom());

@@ -3,6 +3,7 @@ package com.cupom.application.exception;
 import com.cupom.application.dtos.errosResponseDTO.ErrorResponse;
 import com.cupom.infrastructure.exception.CupomException;
 import com.cupom.infrastructure.exception.EntityNotFound;
+import jakarta.validation.ConstraintViolationException;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -67,6 +68,14 @@ public class ApiexceptionGlobalHandler extends ResponseEntityExceptionHandler {
                 ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(ConstraintViolationException ex) {
+        return new ResponseEntity<>(
+                new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Bad Request", ex.getMessage()),
+                HttpStatus.BAD_REQUEST
+        );
     }
 
 }

@@ -1,6 +1,7 @@
 package com.cupom.infrastructure.entities;
 
 import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
+import com.cupom.shared.validation.ValidCupom;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -26,6 +27,7 @@ public class CupomFiscalElasticEntity {
     @Field(type = FieldType.Keyword)
     private String id;
     @Field(type = FieldType.Text)
+    @ValidCupom
     private String numeroCupom;
     @Field(type = FieldType.Text)
     private String cnpj;
