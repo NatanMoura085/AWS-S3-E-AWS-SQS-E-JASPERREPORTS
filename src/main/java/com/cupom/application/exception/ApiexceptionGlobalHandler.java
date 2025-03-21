@@ -4,7 +4,6 @@ import com.cupom.application.dtos.errosResponseDTO.ErrorResponse;
 import com.cupom.infrastructure.exception.CupomException;
 import com.cupom.infrastructure.exception.EntityNotFound;
 import jakarta.validation.ConstraintViolationException;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -30,18 +29,22 @@ public class ApiexceptionGlobalHandler extends ResponseEntityExceptionHandler {
         this.messageSource = messageSource;
     }
 
-    @NotNull
+
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+
+        Map<String, String> errors = ex.getBindingResult().getFieldErrors().stream()
+                .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage));
+
         ProblemDetail problemDetail = ProblemDetail.forStatus(status);
-        problemDetail.setTitle("campos-invalidos");
+        problemDetail.setTitle("Erro de Validação");
+        problemDetail.setDetail("Erro ao validar os campos da requisição.");
         problemDetail.setType(URI.create("https://localhost:8081/erros/campos-invalidos"));
-        Map<String, String> fields = ex.getBindingResult().getAllErrors().stream().collect(Collectors.toMap(objectError -> ((FieldError) objectError).getField(), objectError -> messageSource.getMessage(objectError, LocaleContextHolder.getLocale())));
-        problemDetail.setProperty("fields", fields);
+        problemDetail.setProperty("errors", errors);
 
         return handleExceptionInternal(ex, problemDetail, headers, status, request);
     }
-
     @ExceptionHandler(EntityNotFound.class)
     public ProblemDetail cupomExceptionHandle(CupomException e) {
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
@@ -70,8 +73,8 @@ public class ApiexceptionGlobalHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ErrorResponse> handleValidationException(ConstraintViolationException ex) {
+    @ExceptionHandler(CupomException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(CupomException ex) {
         return new ResponseEntity<>(
                 new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Bad Request", ex.getMessage()),
                 HttpStatus.BAD_REQUEST

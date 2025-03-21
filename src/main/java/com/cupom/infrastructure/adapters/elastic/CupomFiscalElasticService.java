@@ -5,6 +5,7 @@ import com.cupom.application.dtos.elasticDTO.CupomFiscalElasticDTO;
 import com.cupom.core.ports.interfaces.CupomFiscalElasticPort;
 import com.cupom.infrastructure.assembler.CupomFiscalElasticAssembler;
 import com.cupom.infrastructure.entities.CupomFiscalElasticEntity;
+import com.cupom.infrastructure.exception.CupomException;
 import com.cupom.shared.validation.ValidCupom;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;

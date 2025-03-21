@@ -1,6 +1,5 @@
 package com.cupom.shared.validation;
 
-import com.cupom.infrastructure.exception.CupomException;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
@@ -15,8 +14,10 @@ public class CupomValidator implements ConstraintValidator<ValidCupom, String> {
     @Override
     public boolean isValid(String cupom, ConstraintValidatorContext context) {
         if (cupom == null || !cupom.matches(CUPOM_REGEX)) {
-            Exception ConstraintViolationException = null;
-            throw new CupomException("ddfdsfds", new RuntimeException());
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Cupom inválido: deve conter exatamente 6 dígitos numéricos.")
+                    .addConstraintViolation();
+            return false; // Retorne false ao invés de lançar uma exceção.
         }
         return true;
     }

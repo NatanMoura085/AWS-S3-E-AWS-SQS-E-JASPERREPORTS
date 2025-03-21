@@ -1,5 +1,6 @@
 package com.cupom.infrastructure.entities;
 import com.cupom.application.dtos.CupomFiscalDTO;
+import com.cupom.shared.validation.ValidCupom;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 
@@ -13,6 +14,7 @@ public class CupomFiscalEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ValidCupom
     private String numeroCupom;
     private String cnpj;
     private String valor;

@@ -65,7 +65,7 @@ public class JasperReportService implements JasperReportServicePort {
                 return s3Client.getUrl(BUCKET_NAME, pdfKey).toString();
             }
         } catch (IOException | JRException e) {
-            throw new CupomException("Erro ao gerar o cupom fiscal", e);
+            throw new CupomException("Erro ao gerar o cupom fiscal");
         }
     }
 
