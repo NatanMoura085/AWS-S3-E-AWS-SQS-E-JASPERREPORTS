@@ -1,9 +1,10 @@
 package com.cupom.application.dtos;
 
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Date;
 
-public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, String valor, Date dataEmissao) {
+public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, BigDecimal valor, Date dataEmissao) {
     @Override
     public Long id() {
         return id;
@@ -20,7 +21,7 @@ public record CupomFiscalDTO(Long id, String numeroCupom, String cnpj, String va
     }
 
     @Override
-    public String valor() {
+    public BigDecimal valor() {
         return valor;
     }
 

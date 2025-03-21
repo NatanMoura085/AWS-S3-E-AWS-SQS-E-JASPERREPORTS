@@ -4,6 +4,7 @@ import com.cupom.shared.validation.ValidCupom;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class CupomFiscalEntity {
     @ValidCupom
     private String numeroCupom;
     private String cnpj;
-    private String valor;
+    private BigDecimal valor;
     @Column(name = "data_emissao")
     private Date dataEmissao;
     public CupomFiscalEntity() {}
@@ -44,7 +45,7 @@ public class CupomFiscalEntity {
         private Long id;
         private String numeroCupom;
         private String cnpj;
-        private String valor;
+        private BigDecimal valor;
         private Date dataEmissao;
 
 
@@ -58,7 +59,7 @@ public class CupomFiscalEntity {
             return this;
         }
 
-        public Builder withValor(String valor) {
+        public Builder withValor(BigDecimal valor) {
             this.valor = valor;
             return this;
         }
@@ -96,11 +97,11 @@ public class CupomFiscalEntity {
             this.cnpj = cnpj;
         }
 
-        public String getValor() {
+        public BigDecimal getValor() {
             return valor;
         }
 
-        public void setValor(String valor) {
+        public void setValor(BigDecimal valor) {
             this.valor = valor;
         }
 

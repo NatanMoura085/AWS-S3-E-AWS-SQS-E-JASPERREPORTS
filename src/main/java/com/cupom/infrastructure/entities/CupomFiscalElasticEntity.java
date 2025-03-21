@@ -8,6 +8,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Document(indexName = "cupons")
@@ -34,7 +35,7 @@ public class CupomFiscalElasticEntity {
     @Field(type = FieldType.Text)
     private String cnpj;
     @Field(type = FieldType.Text)
-    private String valor;
+    private BigDecimal valor;
     @Field(type = FieldType.Date, format = {}, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     private Date dataEmissao;
 
@@ -62,11 +63,11 @@ public class CupomFiscalElasticEntity {
         this.cnpj = cnpj;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

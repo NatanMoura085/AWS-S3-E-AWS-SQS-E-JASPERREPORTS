@@ -2,6 +2,7 @@ package com.cupom.core.model;
 
 import com.cupom.application.dtos.CupomFiscalDTO;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -11,7 +12,7 @@ public class CupomFiscal {
 
     private String numeroCupom;
     private String cnpj;
-    private String valor;
+    private BigDecimal valor;
     private Date dataEmissao;
 
     public CupomFiscal() {
@@ -34,7 +35,7 @@ public class CupomFiscal {
         private Long id;
         private String numeroCupom;
         private String cnpj;
-        private String valor;
+        private BigDecimal valor;
         private Date dataEmissao;
 
 
@@ -48,7 +49,7 @@ public class CupomFiscal {
             return this;
         }
 
-        public Builder withValor(String valor) {
+        public Builder withValor(BigDecimal valor) {
             this.valor = valor;
             return this;
         }
@@ -87,11 +88,11 @@ public class CupomFiscal {
         this.cnpj = cnpj;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

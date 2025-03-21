@@ -1,12 +1,13 @@
 package com.cupom.core.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class CupomFiscalElastic {
     private String id;
     private String numeroCupom;
     private String cnpj;
-    private String valor;
+    private BigDecimal valor;
     private Date dataEmissao;
 
 
@@ -26,11 +27,11 @@ public class CupomFiscalElastic {
         this.cnpj = cnpj;
     }
 
-    public String getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
